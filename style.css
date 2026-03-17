@@ -7,9 +7,9 @@
   --gold: #c9a84c;
   --gold-light: #e6cb7e;
   --gold-dim: #6a5628;
-  --text: #d8c9ad;
-  --text-mid: #9a8a70;
-  --text-dim: #4a3e2c;
+  --text: #ede0c8;
+  --text-mid: #b8a888;
+  --text-dim: #6a5e48;
   --sq-light: #f0d9b5;
   --sq-dark: #b58863;
   --lm-light: #cdd26a;
@@ -24,7 +24,7 @@ html, body {
     radial-gradient(ellipse 60% 60% at 15% 50%, rgba(201,168,76,0.04) 0%, transparent 60%),
     radial-gradient(ellipse 50% 50% at 85% 50%, rgba(201,168,76,0.03) 0%, transparent 60%);
   color: var(--text);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lora', Georgia, serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@ html, body {
   align-items: center;
   justify-content: flex-end;
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-mid);
   padding-right: 4px;
 }
@@ -96,7 +96,7 @@ html, body {
   width: var(--sz);
   text-align: center;
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-mid);
 }
 
@@ -192,7 +192,7 @@ html, body {
 
 .title {
   font-family: 'Cinzel', serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 8px;
   color: var(--gold);
@@ -205,7 +205,7 @@ html, body {
 
 .label {
   font-family: 'Cinzel', serif;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 3px;
   color: var(--text-mid);
   text-transform: uppercase;
@@ -246,8 +246,8 @@ html, body {
   justify-content: space-between;
   align-items: baseline;
 }
-.lv-name { font-size: 15px; font-weight: 600; color: var(--text); }
-.lv-elo  { font-size: 12px; color: var(--text-mid); }
+.lv-name { font-size: 16px; font-weight: 600; color: var(--text); }
+.lv-elo  { font-size: 13px; color: var(--text-mid); }
 
 /* color buttons */
 .cbtn-row { display: flex; gap: 7px; flex-shrink: 0; }
@@ -258,7 +258,7 @@ html, body {
   border: 1px solid var(--border);
   color: var(--text-mid);
   font-family: 'Cinzel', serif;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 2px;
   cursor: pointer;
   transition: all .18s ease;
@@ -275,7 +275,7 @@ html, body {
   border: 1px solid var(--gold-dim);
   color: var(--gold);
   font-family: 'Cinzel', serif;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 3px;
   cursor: pointer;
   text-transform: uppercase;
@@ -299,14 +299,14 @@ html, body {
   flex-shrink: 0;
 }
 #statusText {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text);
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 #statusText.thinking { color: var(--gold); animation: pulse 1.6s ease-in-out infinite; }
 #statusText.check    { color: #ff7070; }
-#statusText.gameover { color: var(--gold); font-size: 15px; font-weight: 600; }
+#statusText.gameover { color: var(--gold); font-size: 16px; font-weight: 600; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
 
 /* thinking indicator */
@@ -323,9 +323,9 @@ html, body {
 #moveHistory {
   flex: 1;
   overflow-y: auto;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-mid);
-  line-height: 1.7;
+  line-height: 1.75;
   padding-right: 4px;
 }
 #moveHistory::-webkit-scrollbar { width: 3px; }
@@ -333,9 +333,9 @@ html, body {
 #moveHistory::-webkit-scrollbar-thumb { background: var(--border); }
 
 .mv-row { display: flex; gap: 2px; }
-.mv-num { color: var(--text-dim); width: 24px; font-size: 11px; flex-shrink: 0; }
-.mv-w   { width: 58px; }
-.mv-b   { width: 58px; color: var(--text-mid); }
+.mv-num { color: var(--text-dim); width: 26px; font-size: 12px; flex-shrink: 0; }
+.mv-w   { width: 60px; }
+.mv-b   { width: 60px; color: var(--text-mid); }
 .mv-w.latest, .mv-b.latest { color: var(--text); font-weight: 600; }
 
 /* controls */
@@ -351,14 +351,14 @@ html, body {
   background: var(--border);
   border: 1px solid var(--text-dim);
   font-family: 'Cinzel', serif;
-  font-size: 8px;
+  font-size: 9px;
   color: var(--text-mid);
   letter-spacing: 1px;
   border-radius: 2px;
   white-space: nowrap;
 }
 .kdesc {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-mid);
   display: flex;
   align-items: center;
@@ -384,7 +384,7 @@ html, body {
 }
 .modal-title {
   font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 4px;
   color: var(--gold);
   text-transform: uppercase;
@@ -426,7 +426,7 @@ html, body {
 @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 .result-title {
   font-family: 'Cinzel', serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 6px;
@@ -435,7 +435,7 @@ html, body {
   margin-bottom: 8px;
 }
 .result-sub {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-mid);
   font-style: italic;
 }
@@ -451,7 +451,7 @@ html, body {
   align-items: center;
   justify-content: center;
   font-family: 'Cinzel', serif;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 2px;
   color: var(--text-dim);
 }
@@ -474,9 +474,9 @@ html, body {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text-mid);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 13px;
-  padding: 6px 8px;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 14px;
+  padding: 7px 8px;
   cursor: pointer;
   outline: none;
   appearance: none;
@@ -494,7 +494,7 @@ html, body {
 /* ─── BOOK BADGE ─── */
 .book-badge {
   font-family: 'Cinzel', serif;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 2px;
   color: transparent;
   text-align: center;
