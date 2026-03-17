@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Chess</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Board Area -->
+  <div class="board-area">
+    <div class="board-row">
+      <div class="rank-labels" id="rankLabels"></div>
+      <div class="board-col">
+        <div style="position:relative">
+          <div class="board-frame">
+            <div id="board"></div>
+          </div>
+          <svg id="arrowLayer" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="ah" markerWidth="4" markerHeight="4" refX="2.2" refY="2" orient="auto">
+                <path d="M0,0 L0,4 L4,2 z" fill="rgba(255,170,0,0.9)"/>
+              </marker>
+              <marker id="ah-preview" markerWidth="4" markerHeight="4" refX="2.2" refY="2" orient="auto">
+                <path d="M0,0 L0,4 L4,2 z" fill="rgba(255,170,0,0.45)"/>
+              </marker>
+            </defs>
+          </svg>
+          <div class="result-overlay hidden" id="resultOverlay">
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-sub" id="resultSub"></div>
+          </div>
+          <div class="engine-bar">
+            <span id="engineStatus"></span>
+          </div>
+        </div>
+        <div class="file-labels" id="fileLabels"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel -->
+  <div class="panel">
+    <div class="title">CHESS</div>
+
+    <div class="level-wrap">
+      <div class="label">Engine Strength</div>
+      <input type="range" class="slider" id="lvSlider" min="0" max="20" value="5">
+      <div class="level-row">
+        <span class="lv-name" id="lvName">Intermediate</span>
+        <span class="lv-elo" id="lvElo">~1400</span>
+      </div>
+    </div>
+
+    <div class="opening-wrap">
+      <div class="label">Opening</div>
+      <select class="opening-select" id="openingSelect"></select>
+      <span class="book-badge" id="bookBadge"></span>
+    </div>
+
+    <div style="flex-shrink:0">
+      <div class="label">Play As</div>
+      <div class="cbtn-row">
+        <button class="cbtn active" id="btnW">White</button>
+        <button class="cbtn" id="btnB">Black</button>
+      </div>
+    </div>
+
+    <button class="ngbtn" id="ngBtn">New Game</button>
+
+    <div class="status-box">
+      <div id="statusText">Your turn</div>
+    </div>
+
+    <div class="history-wrap">
+      <div class="label">Move History</div>
+      <div id="moveHistory"></div>
+    </div>
+
+    <div style="flex-shrink:0">
+      <div class="label">Controls</div>
+      <div class="ctrl-grid">
+        <span class="kbd">↑ ↓ ← →</span><span class="kdesc">Move cursor</span>
+        <span class="kbd">Space</span><span class="kdesc">Select / Move</span>
+        <span class="kbd">Esc</span><span class="kdesc">Deselect</span>
+        <span class="kbd">Click</span><span class="kdesc">Also works</span>
+        <span class="kbd">R-drag</span><span class="kdesc">Draw arrow</span>
+        <span class="kbd">R-click</span><span class="kdesc">Highlight sq</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Promotion Modal -->
+<div class="modal-bg hidden" id="promoModal">
+  <div class="modal-box">
+    <div class="modal-title">Promote Pawn</div>
+    <div class="promo-row" id="promoRow"></div>
+    <div style="margin-top:12px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--text-dim);text-align:center">← → to choose &nbsp;·&nbsp; Space to confirm</div>
+  </div>
+</div>
+
+<!-- chess.js library, then our game logic -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="openings.js"></script>
+<script src="chess.js"></script>
+
+</body>
+</html>
