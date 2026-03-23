@@ -1,4 +1,4 @@
-// why are you looking for?
+// what are you looking for?
 
 // constants
 
