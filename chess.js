@@ -1,6 +1,6 @@
-// ═══════════════════════════════════════════════
-//  CONSTANTS
-// ═══════════════════════════════════════════════
+// why are you looking for?
+
+// constants
 
 const PIECE_CDN = 'https://raw.githubusercontent.com/lichess-org/lila/master/public/piece/cburnett/';
 
@@ -31,9 +31,7 @@ const LEVELS = [
 const MOVETIME = [150,200,250,300,400,500,600,700,800,900,1000,
                   1100,1200,1300,1400,1600,1800,2000,2200,2500,3000];
 
-// ═══════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════
+// state
 
 const S = {
   game:        null,
@@ -54,9 +52,7 @@ let sf = null, sfReady = false;
 let pendingPromo = null;
 let promoIndex   = 0;
 
-// ═══════════════════════════════════════════════
-//  COORDINATE HELPERS
-// ═══════════════════════════════════════════════
+// coordinate
 
 function d2a(row, col) {
   if (S.playerColor === 'b') return 'abcdefgh'[7-col] + (row+1);
@@ -78,9 +74,7 @@ function isMyTurn() {
   return S.game && S.game.turn() === S.playerColor && !S.gameOver && !S.isThinking;
 }
 
-// ═══════════════════════════════════════════════
-//  STOCKFISH
-// ═══════════════════════════════════════════════
+//  sf
 
 function initSF() {
   if (sf) { try { sf.terminate(); } catch(e){} sf = null; sfReady = false; }
@@ -157,9 +151,7 @@ function applySFMove(mv) {
   }
 }
 
-// ═══════════════════════════════════════════════
-//  OPENING BOOK
-// ═══════════════════════════════════════════════
+//  opening book
 
 function sanBase(san) {
   return san.replace(/[+#!?]/g, '').trim();
@@ -230,9 +222,7 @@ function updateBookBadge() {
   }
 }
 
-// ═══════════════════════════════════════════════
-//  GAME LOGIC
-// ═══════════════════════════════════════════════
+// logic
 
 function newGame() {
   S.game       = new Chess();
@@ -305,9 +295,7 @@ function checkGameOver() {
   if (S.gameOver) showResult();
 }
 
-// ═══════════════════════════════════════════════
-//  PROMOTION
-// ═══════════════════════════════════════════════
+//  promotion
 
 function showPromo(color) {
   promoIndex = 0;
@@ -338,9 +326,7 @@ function confirmPromo(type) {
   pendingPromo = null;
 }
 
-// ═══════════════════════════════════════════════
-//  RENDERING
-// ═══════════════════════════════════════════════
+//  -------
 
 function render() {
   const el   = document.getElementById('board');
@@ -397,9 +383,7 @@ function render() {
   }
 }
 
-// ═══════════════════════════════════════════════
-//  COORDINATE LABELS
-// ═══════════════════════════════════════════════
+//  labels
 
 function buildCoords() {
   const flipped = S.playerColor === 'b';
@@ -524,9 +508,7 @@ function buildOpeningSelect() {
   sel.value = S.openingId;
 }
 
-// ═══════════════════════════════════════════════
-//  KEYBOARD
-// ═══════════════════════════════════════════════
+//  keys
 
 document.addEventListener('keydown', e => {
   const key = e.key;
@@ -594,9 +576,7 @@ document.getElementById('promoModal').addEventListener('click', function(e) {
   if (e.target === this) { this.classList.add('hidden'); pendingPromo = null; }
 });
 
-// ═══════════════════════════════════════════════
-//  ARROW DRAWING SYSTEM
-// ═══════════════════════════════════════════════
+//  arrowsys
 
 const ARR = {
   arrows:    [],
@@ -720,9 +700,7 @@ document.addEventListener('mouseup', e => {
 
 boardEl.addEventListener('contextmenu', e => e.preventDefault());
 
-// ═══════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════
+// initialize
 
 const _baseRender = render;
 render = function() { _baseRender(); renderArrows(); };
