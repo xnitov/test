@@ -1,11 +1,3 @@
-// ═══════════════════════════════════════════════
-//  OPENING BOOK
-//  Moves stored as SAN strings (check symbols
-//  are stripped during comparison so + / # are
-//  optional here — just leave them out).
-//  Each entry: { id, name, group, moves[] }
-// ═══════════════════════════════════════════════
-
 const OPENINGS = [
 
   { id:'free', name:'Free Play', group:'—', moves:[] },
